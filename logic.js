@@ -1,9 +1,11 @@
 
-// NAVIGATION BUTTONS
+// HIDE PAGE 2 AND 3 ON LOAD
 
 $("#page2").hide()
 $("#page3").hide()
 
+
+// NAVIGATION BUTTONS
 
 $("#nav1").on("click", function() {
     $("#nav1").addClass("active");

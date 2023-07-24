@@ -14,3 +14,13 @@
     margin-left: auto;
     margin-right: auto;
 }
+
+/* ADJUST VISIBILITY FOR MOBILE */
+
+@media (max-width: 767px) {
+
+    .nav-pills li {width:100%;}
+    .nav-pills {margin-top:1rem;}
+    .nav-item {margin-left:0}
+}
+
