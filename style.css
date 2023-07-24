@@ -1,0 +1,16 @@
+
+#title {
+    color:white;
+}
+
+.nav-item {
+    margin-left:0.5rem;
+}
+
+.page {
+    width:90%;
+    height:60rem;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+}
