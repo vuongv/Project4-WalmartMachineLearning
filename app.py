@@ -12,7 +12,6 @@ CORS(app)
 def index():
     return render_template("index.html")
 
-
 # API Route
 @app.route("/api")
 def api():
