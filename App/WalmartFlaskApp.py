@@ -15,7 +15,6 @@ df = pd.read_csv('walmart_cleaned.csv')
 def index():
     return render_template("index.html")
 
-
 # API Route
 @app.route("/api")
 def api():
