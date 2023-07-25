@@ -1,9 +1,6 @@
 
 $("#page").load("../../App/templates/visualization1.html")
 
-
-
-
 // NAVIGATION BUTTONS
 
 $("#nav1").on("click", function() {
@@ -11,10 +8,8 @@ $("#nav1").on("click", function() {
     $("#nav2").removeClass("active");
     $("#nav3").removeClass("active");
 
-
     $("#page").empty()
     $("#page").load("../../App/templates/visualization1.html")
-
 
 });
 
