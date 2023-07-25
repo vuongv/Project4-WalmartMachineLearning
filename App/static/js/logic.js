@@ -1,8 +1,7 @@
 
-// HIDE PAGE 2 AND 3 ON LOAD
+$("#page").load("../../App/templates/visualization1.html")
 
-$("#page2").hide()
-$("#page3").hide()
+
 
 
 // NAVIGATION BUTTONS
@@ -12,9 +11,10 @@ $("#nav1").on("click", function() {
     $("#nav2").removeClass("active");
     $("#nav3").removeClass("active");
 
-    $("#page1").show()
-    $("#page2").hide()
-    $("#page3").hide()
+
+    $("#page").empty()
+    $("#page").load("../../App/templates/visualization1.html")
+
 
 });
 
@@ -23,9 +23,8 @@ $("#nav2").on("click", function() {
     $("#nav2").addClass("active");
     $("#nav3").removeClass("active");
 
-    $("#page1").hide()
-    $("#page2").show()
-    $("#page3").hide()
+    $("#page").empty()
+    $("#page").load("../../App/templates/visualization2.html")
 
 });
 
@@ -34,8 +33,7 @@ $("#nav3").on("click", function() {
     $("#nav2").removeClass("active");
     $("#nav3").addClass("active");
 
-    $("#page1").hide()
-    $("#page2").hide()
-    $("#page3").show()
+    $("#page").empty()
+    $("#page").load("../../App/templates/visualization3.html")
 
 });
