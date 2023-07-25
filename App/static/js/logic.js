@@ -32,3 +32,4 @@ $("#nav3").on("click", function() {
     $("#page").load("../../App/templates/visualization3.html")
 
 });
+

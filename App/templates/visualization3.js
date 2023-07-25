@@ -1,8 +1,7 @@
-
 // MAP
 let map = L.map("map",{
-    center: [0, 0],
-    zoom: 2
+    center: [39.83, -98.58],
+    zoom: 4
 });
 
 //TILE LAYER
