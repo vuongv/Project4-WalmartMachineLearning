@@ -1,5 +1,5 @@
 
-$("#page").load("../../App/templates/visualization1.html")
+
 
 // NAVIGATION BUTTONS
 
@@ -8,9 +8,9 @@ $("#nav1").on("click", function() {
     $("#nav2").removeClass("active");
     $("#nav3").removeClass("active");
 
-    $("#page").empty()
-    $("#page").load("../../App/templates/visualization1.html")
-
+    $("#page1").removeClass("d-none");
+    $("#page2").addClass("d-none");
+    $("#page3").addClass("d-none");
 });
 
 $("#nav2").on("click", function() {
@@ -18,9 +18,9 @@ $("#nav2").on("click", function() {
     $("#nav2").addClass("active");
     $("#nav3").removeClass("active");
 
-    $("#page").empty()
-    $("#page").load("../../App/templates/visualization2.html")
-
+    $("#page1").addClass("d-none");
+    $("#page2").removeClass("d-none");
+    $("#page3").addClass("d-none");
 });
 
 $("#nav3").on("click", function() {
@@ -28,7 +28,8 @@ $("#nav3").on("click", function() {
     $("#nav2").removeClass("active");
     $("#nav3").addClass("active");
 
-    $("#page").empty()
-    $("#page").load("../../App/templates/visualization3.html")
-
+    $("#page1").addClass("d-none");
+    $("#page2").addClass("d-none");
+    $("#page3").removeClass("d-none");
 });
+
