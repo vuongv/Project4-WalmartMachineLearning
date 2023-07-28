@@ -57,8 +57,6 @@ d3.json("/../../../Data/all_store_trend_seasonal.json").then(function (data) {
             const storeNumber = event.target.value;
             console.log(storeNumber);
 
-
-
             // LINE CHART
             var trace1 = [{
                 x: data["Store_"+storeNumber+"_Trend"]["Date"],
@@ -76,7 +74,12 @@ d3.json("/../../../Data/all_store_trend_seasonal.json").then(function (data) {
 
 
 
-            
+
+
+
+
+
+
         }; // EVENT CHANGE
     }); // DATA 2
 }); // DATA 1
@@ -91,20 +94,15 @@ d3.json("/../../../Data/all_store_trend_seasonal.json").then(function (data) {
 
 
     // DATE DATA
-    // data["Store_"+i+"_Trend"]["Date"]
+    // data["Store_"+storeNumber+"_Trend"]["Date"]
 
     // TREND DATA
-    // data["Store_"+i+"_Trend"]["Trend"]
+    // data["Store_"+storeNumber+"_Trend"]["Trend"]
 
     // SEASONAL DATA
-    // data["Store_"+i+"_Seasonal"]["Seasonal"]
+    // data["Store_"+storeNumber+"_Seasonal"]["Seasonal"]
 
-    // LOOP THROUGH ALL STORES
-    // for (let i = 1; i < 46; i++) {
-    //     console.log(data["Store_"+i+"_Trend"])
-    // }
-
-
+  
 
 
 
