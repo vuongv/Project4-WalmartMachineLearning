@@ -61,19 +61,28 @@ d3.json("/../../../Data/all_store_trend_seasonal.json").then(function (data) {
             var trace1 = [{
                 x: data["Store_"+storeNumber+"_Trend"]["Date"],
                 y: data["Store_"+storeNumber+"_Trend"]["Trend"],
-                type: 'scatter',
                 line: {width:3},
             }]
-            var layout = {
+            var layout1 = {
                 title: "Store "+storeNumber,
                 font: {color: "#ffffff"},
                 paper_bgcolor: 'rgba(0,0,0,0)',
                 plot_bgcolor: 'rgba(0,0,0,0)',
             };
-            Plotly.newPlot("line-chart", trace1, layout)
-
-
-
+            Plotly.newPlot("trend-chart", trace1, layout1)
+            
+            var trace2 = [{
+                x: data["Store_"+storeNumber+"_Trend"]["Date"],
+                y: data["Store_"+storeNumber+"_Seasonal"]["Seasonal"],
+                line: {width:3},
+            }]
+            var layout2 = {
+                title: "Store "+storeNumber,
+                font: {color: "#ffffff"},
+                paper_bgcolor: 'rgba(0,0,0,0)',
+                plot_bgcolor: 'rgba(0,0,0,0)',
+            };
+            Plotly.newPlot("seasonality-chart", trace2, layout2)
 
 
 

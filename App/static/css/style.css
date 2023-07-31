@@ -22,8 +22,8 @@
     margin-bottom: 2rem;
 }
 
-#line-chart {
-    height:100%;
+.line-chart {
+    height:50%;
     width:100%;
 }
 
