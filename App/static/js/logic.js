@@ -125,7 +125,6 @@ d3.json("/../../../Data/all_store_trend_seasonal.json").then(function (data) {
 // MODEL RESULTS
 // IF YOU'RE READING THIS, WE MANUALLY GENERATED THE CHARTS BECAUSE ALL THE DATAPOINTS WERE 1.
 
-
 var modelData = [{
     x: Array(45).fill().map((element, index) => index + 1),
     y: Array(45).fill(1),
@@ -137,6 +136,7 @@ var modelLayout1 = {
     font: {color: "#ffffff"},
     paper_bgcolor: 'rgba(0,0,0,0)',
     plot_bgcolor: 'rgba(0,0,0,0)',
+    xaxis: {title:"Store Number"},
 };
 
 var modelLayout2 = {
