@@ -313,8 +313,13 @@ d3.json("/../../../Data/all_store_trend_seasonal.json").then(function (data) {
                 // AUTOMATICALLY LOAD STORE 1
                 ChangeCharts(1);
 
+                $("#store-dropdown").val("1");
+
                 // SOLVE PROBLEM OF CHARTS NOT RE-SIZING OFF SCREEN
                 $("#nav1").on("click", function() {
+
+                    console.log(dropdown.value)
+
                     ChangeCharts(dropdown.value)
                 });
                 $("#nav2").on("click", function() {
