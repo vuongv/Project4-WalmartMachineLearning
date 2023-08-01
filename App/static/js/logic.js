@@ -4,30 +4,48 @@ $("#nav1").on("click", function() {
     $("#nav1").addClass("active");
     $("#nav2").removeClass("active");
     $("#nav3").removeClass("active");
+    $("#nav4").removeClass("active");
 
     $("#page1").removeClass("d-none");
     $("#page2").addClass("d-none");
     $("#page3").addClass("d-none");
+    $("#page4").addClass("d-none");
 });
 
 $("#nav2").on("click", function() {
     $("#nav1").removeClass("active");
     $("#nav2").addClass("active");
     $("#nav3").removeClass("active");
+    $("#nav4").removeClass("active");
 
     $("#page1").addClass("d-none");
     $("#page2").removeClass("d-none");
     $("#page3").addClass("d-none");
+    $("#page4").addClass("d-none");
 });
 
 $("#nav3").on("click", function() {
     $("#nav1").removeClass("active");
     $("#nav2").removeClass("active");
     $("#nav3").addClass("active");
+    $("#nav4").removeClass("active");
 
     $("#page1").addClass("d-none");
     $("#page2").addClass("d-none");
     $("#page3").removeClass("d-none");
+    $("#page4").addClass("d-none");
+});
+
+$("#nav4").on("click", function() {
+    $("#nav1").removeClass("active");
+    $("#nav2").removeClass("active");
+    $("#nav3").removeClass("active");
+    $("#nav4").addClass("active");
+
+    $("#page1").addClass("d-none");
+    $("#page2").addClass("d-none");
+    $("#page3").addClass("d-none");
+    $("#page4").removeClass("d-none");
 });
 
 
@@ -99,26 +117,56 @@ d3.json("/../../../Data/all_store_trend_seasonal.json").then(function (data) {
 
         // AUTOMATICALLY LOAD STORE 1
         ChangeCharts(1);
-        
     }); // DATA 2
 }); // DATA 1
 
 
 
+// MODEL RESULTS
+// IF YOU'RE READING THIS, WE MANUALLY GENERATED THE CHARTS BECAUSE ALL THE DATAPOINTS WERE 1.
 
 
+var modelData = [{
+    x: Array(45).fill().map((element, index) => index + 1),
+    y: Array(45).fill(1),
+    type: "bar",
+}];
+
+var modelLayout1 = {
+    title: "Accuracy for each store",
+    font: {color: "#ffffff"},
+    paper_bgcolor: 'rgba(0,0,0,0)',
+    plot_bgcolor: 'rgba(0,0,0,0)',
+};
+
+var modelLayout2 = {
+    title: "Precision for each store",
+    font: {color: "#ffffff"},
+    paper_bgcolor: 'rgba(0,0,0,0)',
+    plot_bgcolor: 'rgba(0,0,0,0)',
+};
+
+var modelLayout3 = {
+    title: "Recall for each store",
+    font: {color: "#ffffff"},
+    paper_bgcolor: 'rgba(0,0,0,0)',
+    plot_bgcolor: 'rgba(0,0,0,0)',
+};
+
+var modelLayout4 = {
+    title: "F1-Score for each store",
+    font: {color: "#ffffff"},
+    paper_bgcolor: 'rgba(0,0,0,0)',
+    plot_bgcolor: 'rgba(0,0,0,0)',
+};
 
 
-    // DATE DATA
-    // data["Store_"+storeNumber+"_Trend"]["Date"]
+model_chart_1 = Plotly.newPlot("model_chart1", modelData, modelLayout1)
+model_chart_2 = Plotly.newPlot("model_chart2", modelData, modelLayout2)
+model_chart_3 = Plotly.newPlot("model_chart3", modelData, modelLayout3)
+model_chart_4 = Plotly.newPlot("model_chart4", modelData, modelLayout4)
 
-    // TREND DATA
-    // data["Store_"+storeNumber+"_Trend"]["Trend"]
-
-    // SEASONAL DATA
-    // data["Store_"+storeNumber+"_Seasonal"]["Seasonal"]
-
-  
+console.log(Array(45).fill().map((element, index) => index + 1))
 
 
 

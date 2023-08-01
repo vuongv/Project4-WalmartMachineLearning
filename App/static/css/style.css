@@ -34,6 +34,10 @@ li {
     margin-bottom: 2rem;
 }
 
+.model-chart {
+    width:35%;
+}
+
 .line-chart {
     height:50%;
     width:100%;
