@@ -17,28 +17,40 @@
 <body>
 
     <div class="container">
+ 
+        <!-- TITLE -->
+        <div class="col-md-6 justify-content-center">
+            <span class="fs-4" id="title">Walmart Machine Learning</span>
+        </div>
+        
+        <!-- NAV BAR -->
         <header class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 mb-4 border-bottom">
-
-              <!-- TITLE -->
-            <div class="col-md-6">
-                <span class="fs-4" id="title">Walmart Machine Learning</span>
-            </div>
-            
             <!-- NAV BUTTONS -->
             <ul class="nav nav-pills">
                 <li class="nav-item">
                     <a class="nav-link active" id="nav1" href="#">
-                        Visualization 1
+                        Trending & Seasonality
                     </a>
                 </li>
-                <li class="nav-item">
+                <li>
+
+                </li class="nav-item">
                     <a class="nav-link" id="nav2" href="#">
-                        Visualization 2
+                        Sales Predictions
+                    </a>
+                <li class="nav-item">
+                    <a class="nav-link" id="nav3" href="#">
+                        PCA
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link " id="nav3" href="#">
-                        Visualization 3
+                    <a class="nav-link " id="nav4" href="#">
+                        Store Clustering
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link " id="nav5" href="#">
+                        Model Analysis
                     </a>
                 </li>
             </ul>
@@ -46,17 +58,114 @@
     </div>
 
     <div class="container">
-        <div class="row">
-            <div class="col-lg-12 page border" id="page1">
-                Visualization 1
-            </div>
-            <div class="col-lg-12 page border d-none" id="page2">
-                Visualization 2
-            </div>
-            <div class="col-lg-12 page border d-none" id="page3">
-                Visualization 3
-            </div>
+        <div class="row" id = "dropdown-row">
+            <select for="store-dropdown" id="store-dropdown" class="form-control">
+                <option value="" disabled selected>Select a Store</option>
+            </select>
         </div>
+    </div>
+
+    <div class="container" id="main-body">
+
+        <div class="row">
+
+            <!-- PAGE 1 -->
+            <div class="col-lg-12 page" id="page1">
+                <div class="line-chart" id="trend-chart"></div>
+                <ul>
+                    <li>
+                        Trend analysis with time series – This graph analyses the weekly sales over the period of 143 weeks to plot the sales trend line using time series analysis.
+                    </li>
+                    <li>
+                        You can see some stores have a healthy upward trend while some are having a dip and in recovery stage on their sales trend and while others plateauing.
+                    </li>
+                </ul>
+                <div class="line-chart" id="seasonality-chart"></div>
+                <ul>
+                    <li>
+                        Seasonal trend – The Seasonal graph shows the seasonal trend in weekly sales over the period of 143 weeks.
+                    </li>
+                    <li>
+                        This graph shows the time over which sales peak, and you can see it repeat over the period showing the seasonal trend in sales.
+                    </li>
+                    <li>
+                        In most stores these peaks happen in November (Thanksgiving and Black Friday) and in December over the Christmas season.
+                    </li>
+                    <li>
+                        This analysis helps a great deal in store inventory and human resource management.
+                    </li>
+                </ul>
+            </div>
+
+            <!-- PAGE 2 -->
+            <div class="col-lg-12 page d-none" id="page2">
+                <div class="line-chart" id="predictions-chart"></div>
+            </div>
+
+            <!-- PAGE 3 -->
+            <div class="col-lg-12 page d-none" id="page3">
+                <div class="line-chart" id="pca-chart"></div>
+            </div>
+
+            <!-- PAGE 4 -->
+            <div class="col-lg-12 page d-none" id="page4">
+                <div class="line-chart" id="cluster-chart"></div>
+                <ul>
+                    <li>
+                        Cluster analysis – A cluster analysis was done on the stores with weekly sales and four clusters were identified.
+                    </li>
+                    <li>
+                        The Scatter plot shows the four clusters and hovering over the plots will show the store, its cluster, and weekly sales based on a standard scaler.
+                    </li>
+                    <li>
+                        Cluster two shows the best stores in terms of weekly sales while cluster one shows the lowest sales stores.
+                    </li>
+                </ul>
+            </div>
+
+            <!-- PAGE 5 -->
+            <div class="col-lg-12 page d-none" id="page5">
+                <div class="row">
+                    <div class="col-lg-6">
+                        <div class="model-chart" id="model_chart1"></div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="model-chart" id="model_chart2"></div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-6">
+                        <div class="model-chart" id="model_chart3"></div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="model-chart" id="model_chart4"></div>
+                    </div>
+                </div>
+                <ul>
+                    <li>
+                        We used ROS (Random Over Sampler) to balance our data.
+                    </li>
+                    <li>
+                        The model consistently achieved 100% accuracy across all 45 stores. This indicates that the model is robust and can generalize well to different stores and scenarios.
+                    </li>
+                    <li>
+                        The precision, recall, and f1-score for both classes (0 and 1) are 1.0 for most stores. This means that the model has a perfect balance of identifying positive cases (e.g., successful outcomes) and negative cases (e.g., unsuccessful outcomes) for each store.
+                    </li>
+                    <li>
+                        There is no indication of overfitting in the model's performance. Overfitting occurs when a model performs well on the training data but poorly on unseen data. Since the accuracy is high for all stores, it suggests that the model is generalizing well and not overfitting.
+                    </li>
+                    <li>
+                        The model demonstrates a high predictive power in determining the outcome of each store, making it a reliable tool for decision-making and forecasting. The model's accuracy and performance across all 45 stores demonstrate its scalability. It can handle a large number of stores without compromising its predictive capability.
+                    </li>
+                    <li>
+                        With a model accuracy of 1.0, it can be emphasized that the model can potentially provide substantial business value by accurately predicting outcomes, allowing for better resource allocation, inventory management, and overall store performance optimization.
+                    </li>
+                </ul>
+            </div>
+
+        </div>
+
+
     </div>
 
 

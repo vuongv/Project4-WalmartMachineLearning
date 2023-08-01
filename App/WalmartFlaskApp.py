@@ -19,6 +19,7 @@ def index():
 @app.route("/api")
 def api():
     # Convert dataframe to a list of dictionaries
+ 
     data = df.to_dict(orient='records')
 
     # Return JSON data
