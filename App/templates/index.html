@@ -17,6 +17,7 @@
 <body>
 
     <div class="container">
+
         <header class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 mb-4 border-bottom">
 
               <!-- TITLE -->
@@ -28,17 +29,17 @@
             <ul class="nav nav-pills">
                 <li class="nav-item">
                     <a class="nav-link active" id="nav1" href="#">
-                        Visualization 1
+                        Trending & Seasonality
                     </a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" id="nav2" href="#">
-                        Visualization 2
+                        PC Analysis
                     </a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link " id="nav3" href="#">
-                        Visualization 3
+                        Store Clustering
                     </a>
                 </li>
             </ul>
@@ -54,10 +55,21 @@
     </div>
 
     <div class="container" id="main-body">
+
         <div class="row">
             <div class="col-lg-12 page" id="page1">
                 <div class="line-chart" id="trend-chart"></div>
+                <ul>
+                    <li>
+                        Trend analysis with time series – This graph analyses the weekly sales over the period of 143 weeks to plot the sales trend line using time series analysis. You can see some stores have a healthy upward trend while some are having a dip and in recovery stage on their sales trend and while others plateauing.
+                    </li>
+                </ul>
                 <div class="line-chart" id="seasonality-chart"></div>
+                <ul>
+                    <li>
+                        Seasonal trend – The Seasonal graph shows the seasonal trend in weekly sales over the period of 143 weeks. This graph shows the time over which sales peak, and you can see it repeat over the period showing the seasonal trend in sales. In most stores these peaks happen in November (Thanksgiving and Black Friday) and in December over the Christmas season. This analysis helps a great deal in store inventory and human resource management.
+                    </li>
+                </ul>
             </div>
             <div class="col-lg-12 page d-none" id="page2">
                 Visualization 2
@@ -66,6 +78,8 @@
                 Visualization 3
             </div>
         </div>
+
+
     </div>
 
 

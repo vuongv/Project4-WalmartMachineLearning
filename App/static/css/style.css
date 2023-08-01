@@ -7,12 +7,24 @@
     margin-left:0.5rem;
 }
 
+.container {
+    width: 80%;
+}
+
 .page {
     width:100%;
     height:60rem;
     text-align: center;
     margin-left: auto;
     margin-right: auto;
+}
+
+.page-row {
+    height:100%;
+}
+
+li {
+    text-align: left;
 }
 
 #store-dropdown {
@@ -25,6 +37,7 @@
 .line-chart {
     height:50%;
     width:100%;
+    margin-bottom: 1rem;
 }
 
 /* ADJUST VISIBILITY FOR MOBILE */
