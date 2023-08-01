@@ -7,10 +7,6 @@
     margin-left:0.5rem;
 }
 
-.container {
-    width: 80%;
-}
-
 .page {
     width:100%;
     height:60rem;
@@ -42,7 +38,15 @@ li {
     height:50%;
     width:100%;
     margin-bottom: 1rem;
+    border-width: 0.5px;
+    border-style: solid;   
+    border-color: rgba(0,0,0,0.3);
 }
+
+#page3 .line-chart {
+    height:100%;
+}
+
 
 /* ADJUST VISIBILITY FOR MOBILE */
 @media (max-width: 767px) {
