@@ -47,6 +47,9 @@ li {
     height:100%;
 }
 
+#page4 .line-chart {
+    height:100%;
+}
 
 /* ADJUST VISIBILITY FOR MOBILE */
 @media (max-width: 767px) {

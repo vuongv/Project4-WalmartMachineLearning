@@ -63,6 +63,8 @@ $("#nav4").on("click", function() {
     $("#page5").addClass("d-none");
 
     $("#dropdown-row").addClass("d-none");
+
+    ShowClusters()
 });
 
 $("#nav5").on("click", function() {
@@ -97,9 +99,6 @@ d3.json("/../../../Data/all_store_trend_seasonal.json").then(function (data) {
 
         // PROPHET 45 PREDICTIONS
         d3.json("/../../../Data/Prophet 45.json").then(function (data_3) {
-
-            // STORE CLUSTERING
-            d3.json("/../../../Data/store_sales_clusters.json").then(function (data_4) {
 
                 // LOAD DROPDOWN WITH STORES
                 for (let i = 1; i < 46; i++) {
@@ -244,8 +243,6 @@ d3.json("/../../../Data/all_store_trend_seasonal.json").then(function (data) {
                         plot_bgcolor: 'rgba(0,0,0,0)',
                         showlegend: true,
                         legend :{"orientation": "h"},
-                        // height: 800,
-                        // width: 1200,
                         autorange: true,
                         range: [1433481696661.8, 1465979903338.2],
                     };
@@ -327,17 +324,60 @@ d3.json("/../../../Data/all_store_trend_seasonal.json").then(function (data) {
                     ChangeCharts(dropdown.value)
                 });
 
-            });// DATA 4
+
+                
+
         }); // DATA 3
     }); // DATA 2
 }); // DATA 1
 
 
 
+// STORE CLUSTERING
 
+function ShowClusters() {
+
+    d3.json("/../../../Data/store_sales_clusters.json").then(function (data_4) {
+
+        var store_number = [];
+        var weekly_sales = [];
+        var cluster = [];
+        for (let a = 0; a < 45; a++) {0                   
+            store_number.push(data_4[a]["Store"]);
+            weekly_sales.push(data_4[a]["Total_Weekly_Sales"])
+            cluster.push(data_4[a]["Cluster"])
+        };
+
+        var uniqueClusters = [...new Set(cluster)]; // Get unique cluster values
+        var clusterTrace = uniqueClusters.map((clusterValue, index) => ({
+            x: store_number.filter((_, i) => cluster[i] === clusterValue),
+            y: weekly_sales.filter((_, i) => cluster[i] === clusterValue),
+            mode: "markers",
+            type: "scatter",
+            marker: {size: 10, color: clusterValue, colorscale: "Viridis"},
+            name: `Cluster ${clusterValue}`,
+            legendgroup: `Cluster ${clusterValue}`,
+            hovertemplate: "Store: %{x}<br>Weekly Sales (scaled): %{y}<extra></extra>",
+        }));
+
+        var clusterLayout = {
+            title: "Store Clusters",
+            font: {color: "#ffffff"},
+            paper_bgcolor: 'rgba(0,0,0,0)',
+            plot_bgcolor: 'rgba(0,0,0,0)',
+            xaxis: {title: "Store"},
+            yaxis: {title: "Weekly Sales"},
+            showlegend: true,
+            legend: {title: "Cluster"},
+        };
+
+        ClusterChart = Plotly.newPlot("cluster-chart", clusterTrace, clusterLayout, plotConfig)
+
+    });
+};
 
 // MODEL RESULTS
-// IF YOU'RE READING THIS, WE MANUALLY GENERATED THE CHARTS BECAUSE ALL THE DATAPOINTS WERE 1.
+// IF YOU'RE READING THIS, WE MANUALLY GENERATED THE CHARTS BECAUSE ALL THE DATAPOINTS WERE 1.00.
 
 var modelData = [{
     x: Array(45).fill().map((element, index) => index + 1),
