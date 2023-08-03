@@ -1,6 +1,8 @@
 
 #title {
     color:white;
+    margin-top:0.5rem;
+    margin-bottom:0.5.rem;
 }
 
 .nav-item {
@@ -30,9 +32,9 @@ li {
     margin-bottom: 2rem;
 }
 
-.model-chart {
+/* .model-chart {
     width:35%;
-}
+} */
 
 .line-chart {
     height:50%;
@@ -41,6 +43,10 @@ li {
     border-width: 0.5px;
     border-style: solid;   
     border-color: rgba(0,0,0,0.3);
+}
+
+#page2 .line-chart {
+    height:100%;
 }
 
 #page3 .line-chart {
