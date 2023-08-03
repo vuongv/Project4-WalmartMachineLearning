@@ -101,7 +101,7 @@ d3.json("/../../../Data/all_store_trend_seasonal.json").then(function (data) {
         d3.json("/../../../Data/Prophet 45.json").then(function (data_3) {
 
             // Correlation Matrices Data
-            d3.json("/../../../Data/correlation_matrices.json").then(function (data_4){
+            d3.json("/../../../Data/correlation_heatmaps (3).json").then(function (data_4){
 
                 // LOAD DROPDOWN WITH STORES
                 for (let i = 1; i < 46; i++) {
@@ -248,6 +248,7 @@ d3.json("/../../../Data/all_store_trend_seasonal.json").then(function (data) {
                         legend :{"orientation": "h"},
                         autorange: true,
                         range: [1433481696661.8, 1465979903338.2],
+                        hovermode: 'closest'
                     };
                     var PCA_weekly_sales_plot = [{
                         x: data_2["Store_"+Number].length,
@@ -310,17 +311,15 @@ d3.json("/../../../Data/all_store_trend_seasonal.json").then(function (data) {
                     Plotly.addTraces("pca-chart",PCA_unemployment_plot)
                     Plotly.addTraces("pca-chart",PCA_fuel_price_plot)
                     Plotly.addTraces("pca-chart",PCA_cpi_plot)
-                    
+
+        
                     
                     // CORRELATION CHART
-                    var zValues = [
-                        [data_4[Number]["PC1"]["PC1"], data_4[Number]["PC1"]["PC2"], data_4[Number]["PC1"]["Weekly_Sales"]],
-                        [data_4[Number]["PC2"]["PC1"], data_4[Number]["PC2"]["PC2"], data_4[Number]["PC2"]["Weekly_Sales"]],
-                        [data_4[Number]["Weekly_Sales"]["PC2"], data_4[Number]["Weekly_Sales"]["PC2"], data_4[Number]["Weekly_Sales"]["Weekly_Sales"]]
-                        ]
-                    var xValues = ["PC1", "PC2", "Weekly Sales"]
+                    var zValues = [data_4[Number]["data"][0],data_4[Number]["data"][1],data_4[Number]["data"][2],data_4[Number]["data"][3],data_4[Number]["data"][4],data_4[Number]["data"][5]]
 
-                    var yValues = ["PC1", "PC2", "Weekly Sales"]
+                    var xValues = data_4[Number]["columns"]
+
+                    var yValues = data_4[Number]["rows"]
 
                     var heatmap_data = [{
                         z: zValues,
@@ -330,7 +329,7 @@ d3.json("/../../../Data/all_store_trend_seasonal.json").then(function (data) {
                         colorscale: [
                             [-10, '#0000ff'],
                             [10, '#ff0000']
-                        ] 
+                        ]
                     }]
 
                     var heatmap_layout = {
@@ -372,9 +371,8 @@ d3.json("/../../../Data/all_store_trend_seasonal.json").then(function (data) {
                           heatmap_layout.annotations.push(result);
                         }
                       }
-                    
-                    Plotly.newPlot("correlation-chart", heatmap_data, heatmap_layout)
-                    console.log(zValues)
+                     Plotly.newPlot("correlation-chart", heatmap_data, heatmap_layout)
+                  
                     
                 }; // EVENT CHANGE
        
