@@ -153,6 +153,12 @@ d3.json("/../../../Data/all_store_trend_seasonal.json").then(function (data) {
                         font: {color: "#ffffff"},
                         paper_bgcolor: 'rgba(0,0,0,0.05)',
                         plot_bgcolor: 'rgba(0,0,0,0)',
+                        yaxis: {
+                           color: 'red',
+                           tickfont: {
+                            color: 'white'
+                           }
+                        }
                     };
                     SeasonalityChart = Plotly.newPlot("seasonality-chart", chart2Data, layout2, plotConfig)
 
