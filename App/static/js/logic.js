@@ -100,6 +100,9 @@ d3.json("/../../../Data/all_store_trend_seasonal.json").then(function (data) {
         // PROPHET 45 PREDICTIONS
         d3.json("/../../../Data/Prophet 45.json").then(function (data_3) {
 
+            // Correlation Matrices Data
+            d3.json("/../../../Data/correlation_matrices.json").then(function (data_4){
+
                 // LOAD DROPDOWN WITH STORES
                 for (let i = 1; i < 46; i++) {
                     const option = document.createElement('option');
@@ -307,7 +310,72 @@ d3.json("/../../../Data/all_store_trend_seasonal.json").then(function (data) {
                     Plotly.addTraces("pca-chart",PCA_unemployment_plot)
                     Plotly.addTraces("pca-chart",PCA_fuel_price_plot)
                     Plotly.addTraces("pca-chart",PCA_cpi_plot)
+                    
+                    
 
+                    var zValues = [
+                        [data_4[Number]["PC1"]["PC1"], data_4[Number]["PC1"]["PC2"], data_4[Number]["PC1"]["Weekly_Sales"]],
+                        [data_4[Number]["PC2"]["PC1"], data_4[Number]["PC2"]["PC2"], data_4[Number]["PC2"]["Weekly_Sales"]],
+                        [data_4[Number]["Weekly_Sales"]["PC2"], data_4[Number]["Weekly_Sales"]["PC2"], data_4[Number]["Weekly_Sales"]["Weekly_Sales"]]
+                ]
+                    var xValues = ["PC1", "PC2", "Weekly Sales"]
+
+                    var yValues = ["PC1", "PC2", "Weekly Sales"]
+
+                    var heatmap_data = [{
+                        z: zValues,
+                        x: xValues,
+                        y: yValues,
+                        type: "heatmap",
+                        colorscale: [
+                            [-10, '#0000ff'],
+                            [10, '#ff0000']
+                        ] 
+                    }]
+
+                    var heatmap_layout = {
+                        title: 'Correlation Store' + Number, 
+                        annotations: [],
+                        xaxis: {
+                            ticks: '',
+                            side: 'top',
+                            font: {color: "#ffffff"},
+                        },
+                        yaxis: {
+                            ticks: '',
+                            ticksuffix: '',
+    
+                        },
+                        paper_bgcolor: 'rgba(0,0,0,0)',
+                        font: {color: "#ffffff"}
+                    }
+
+                    for ( var i = 0; i < yValues.length; i++ ) {
+                        for ( var j = 0; j < xValues.length; j++ ) {
+                          var result = {
+                            xref: 'x1',
+                            yref: 'y1',
+                            x: xValues[j],
+                            y: yValues[i],
+                            text: zValues[i][j].toFixed(2),
+                            font: {
+                              family: 'Arial',
+                              size: 12,
+                              color: 'rgba(0,0,0,0)'
+                            },
+                            showarrow: false,
+                            font: {
+                              color: 'white'
+
+                            }
+                          };
+                          heatmap_layout.annotations.push(result);
+                        }
+                      }
+                    
+                    Plotly.newPlot("correlation-chart", heatmap_data, heatmap_layout)
+                    console.log(zValues)
+                    
                 }; // EVENT CHANGE
        
                 // AUTOMATICALLY LOAD STORE 1
@@ -331,7 +399,7 @@ d3.json("/../../../Data/all_store_trend_seasonal.json").then(function (data) {
 
 
                 
-
+            }); // Data 4
         }); // DATA 3
     }); // DATA 2
 }); // DATA 1

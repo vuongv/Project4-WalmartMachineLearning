@@ -44,7 +44,11 @@ li {
 }
 
 #page3 .line-chart {
-    height:100%;
+    height:50%;
+}
+
+#page3 .correlation-chart {
+    width: 50%;
 }
 
 #page4 .line-chart {
