@@ -240,7 +240,7 @@ d3.json("/../../../Data/all_store_trend_seasonal.json").then(function (data) {
                     }
 
                     var PCA_layout = {
-                        title: "Store " + Number + " — PCA",
+                        title: "Store " + Number + " — PCA Components",
                         font: {color: "#ffffff"},
                         paper_bgcolor: 'rgba(0,0,0,0)',
                         plot_bgcolor: 'rgba(0,0,0,0)',
@@ -312,12 +312,12 @@ d3.json("/../../../Data/all_store_trend_seasonal.json").then(function (data) {
                     Plotly.addTraces("pca-chart",PCA_cpi_plot)
                     
                     
-
+                    // CORRELATION CHART
                     var zValues = [
                         [data_4[Number]["PC1"]["PC1"], data_4[Number]["PC1"]["PC2"], data_4[Number]["PC1"]["Weekly_Sales"]],
                         [data_4[Number]["PC2"]["PC1"], data_4[Number]["PC2"]["PC2"], data_4[Number]["PC2"]["Weekly_Sales"]],
                         [data_4[Number]["Weekly_Sales"]["PC2"], data_4[Number]["Weekly_Sales"]["PC2"], data_4[Number]["Weekly_Sales"]["Weekly_Sales"]]
-                ]
+                        ]
                     var xValues = ["PC1", "PC2", "Weekly Sales"]
 
                     var yValues = ["PC1", "PC2", "Weekly Sales"]
@@ -334,7 +334,7 @@ d3.json("/../../../Data/all_store_trend_seasonal.json").then(function (data) {
                     }]
 
                     var heatmap_layout = {
-                        title: 'Correlation Store' + Number, 
+                        title: "Store " + Number + " — Correlation", 
                         annotations: [],
                         xaxis: {
                             ticks: '',
